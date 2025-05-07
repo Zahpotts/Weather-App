@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 
 const WeatherContext = createContext();
-const initialState = { weather: null, loading: true, error: null };
+const initialState = { weather: null, loading: false, error: null };
 
 const weatherReducer = (state, action) => {
   switch (action.type) {
@@ -14,7 +14,7 @@ const weatherReducer = (state, action) => {
     default:
       return state; 
   }
-}
+};
 export const WeatherProvider = ({ children }) => {
   const [state, dispatch] = useReducer(weatherReducer, initialState);
 

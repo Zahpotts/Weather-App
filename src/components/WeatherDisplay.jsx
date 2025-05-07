@@ -1,8 +1,11 @@
-import React from "react";
-import { useWeather } from "../hooks/useWeather";
+import React, {useContext} from "react";
+
+import WeatherContext from "../context/WeatherContext";
 
 const WeatherDisplay = () => {
-    const {data, loading, error} = useWeather();
+    const {state} = useContext(WeatherContext);
+    const {data, loading, error} = state;
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if(data) return (
