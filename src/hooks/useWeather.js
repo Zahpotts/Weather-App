@@ -6,9 +6,15 @@ const useWeather = () => {
   const { state, dispatch } = useContext(WeatherContext);
 
   const fetchWeather = async (city) => {
+   if(!city) return;
     dispatch({ type: "FETCH_START" });
     try {
-      const response = await fetch(`${weather_api_url}?city=${city}`);
+      const response = await fetch(`${weather_api_url}/${city}`, {
+
+        headers:{
+            'Cache-Control': 'no-cache',
+        }
+      });
       if (!response.ok) throw new Error("Network response was not ok");
       const data = await response.json();
       dispatch({ type: "FETCH_SUCCESS", payload: data });

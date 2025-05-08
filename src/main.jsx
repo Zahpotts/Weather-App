@@ -5,10 +5,11 @@ import './index.css'
 import { WeatherProvider } from './context/WeatherContext'
 
 createRoot(document.getElementById('root')).render(
+  
+<StrictMode>
   <WeatherProvider>
-
-  <StrictMode>
     <App />
-  </StrictMode>
+  
   </WeatherProvider>
+  </StrictMode>
 )

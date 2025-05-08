@@ -1,14 +1,14 @@
 import { createContext, useReducer } from "react";
 
 const WeatherContext = createContext();
-const initialState = { weather: null, loading: false, error: null };
+const initialState = { data: null, loading: false, error: null };
 
 const weatherReducer = (state, action) => {
   switch (action.type) {
    case 'FETCH_START':
       return { ...state, loading: true, error: null };
     case 'FETCH_SUCCESS':
-      return { ...state, weather: action.payload, loading: false };
+      return { ...state, data: action.payload, loading: false };
     case 'FETCH_ERROR':
       return { ...state, loading: false, error: action.payload };
     default:
