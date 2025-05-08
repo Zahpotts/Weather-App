@@ -1,33 +1,28 @@
 import React, {useContext} from "react";
-
 import WeatherContext from "../context/WeatherContext";
-import getBackgroundClass from "../utils/getBackgroundClass";
 
 const WeatherDisplay = () => {
     const {state} = useContext(WeatherContext);
-    
     const {data, loading, error} = state;
     
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error}</div>;
+    if (loading) return <div className="text-center py-4">Loading...</div>;
+    if (error) return <div className="text-center py-4 text-red-500">Error: {error}</div>;
+    
     if(data) {
         const {name, main, weather} = data;
         const temperature = main.temp;
         const condition = weather[0]?.description;
-        const background = weather[0]?.main.toLowerCase();
-
-        const backgroundClass = getBackgroundClass(background);
-       
-     return(
         
-        <div className={`weather-display p-6 rounded-lg text-white shadow-md transition ${backgroundClass}`}>
-            <h2>Weather in {name}</h2>
-            <p>Temperature: {temperature}°F</p>
-            <p>Condition: {condition}</p>
-        </div>
-    );
+        return(
+            <div className="weather-display p-6 rounded-lg bg-white/80 shadow-md transition">
+                <h2 className="text-2xl font-bold mb-4 text-gray-800">Weather in {name}</h2>
+                <p className="text-xl mb-2 text-gray-700">Temperature: {temperature}°F</p>
+                <p className="text-lg text-gray-700">Condition: {condition}</p>
+            </div>
+        );
     }
-    return <p>Please search for a city to display weather.</p>;
+    
+    return <p className="text-center py-4 text-gray-500">Please search for a city to display weather.</p>;
 }
+
 export default WeatherDisplay;
