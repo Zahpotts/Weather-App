@@ -10,3 +10,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.bg-clear {
+  background: url('/images/Sunnyday.jpg');
+}
+
+.bg-rain{
+ background: url('/images/rain.jpg');
+}
+.bg-snow{
+ background: url('/images/Snow.jpg');
+}
+.bg-clouds{
+ background: url('/images/clouds.jpg');
+}
+.bg-thunder{
+ background: url('/images/thunder.jpg');
+}
+.bg-default{
+  background-color: #f0f0f0;
+}
