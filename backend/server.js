@@ -1,4 +1,5 @@
 import express from 'express';
+import cors from 'cors';
 import axios from 'axios';
 const app = express();
 
@@ -9,11 +10,7 @@ const apiKey = process.env.WEATHER_API_KEY;
 console.log('aiKey:', apiKey); // Check if the API key is being loaded correctly
 
 // Set CORS header
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://weather-app-frontend-dfjc.onrender.com');
-  next();
-});
-
+app.use(cors({origin: 'https://weather-app-frontend-dfjc.onrender.com'}));
 app.get('/api/search/:city', async (req, res) => {
     const cityName = req.params.city;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
