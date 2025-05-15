@@ -7,9 +7,7 @@
     "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
     "dev:frontend": "vite",
     "dev:backend": "node backend/index.js",
-    "build:fontend": "vite build",
-    "build:backend": "cd backend && npm install && npm run build && cd ..",
-    "build": "npm run build:fontend && npm run build:backend",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest --ui"
