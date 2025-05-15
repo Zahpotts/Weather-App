@@ -1,10 +1,17 @@
 import express from 'express';
 import axios from 'axios';
 import cors from 'cors';
+import dotenv from 'dotenv';
 const app = express();
 
-app.use(cors());
-import dotenv from 'dotenv';
+app.use(cors({
+  origin: 'https://weather-app-frontend-dfjc.onrender.com',
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+app.options('*', cors()); // handle preflight
+
+
 dotenv.config();
 
 const apiKey = process.env.WEATHER_API_KEY;
