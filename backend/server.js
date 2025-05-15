@@ -5,7 +5,7 @@ const app = express();
 import dotenv from 'dotenv';
 dotenv.config();
 
-const apiKey = process.env.WEATHER_API_KEY;
+const apiKey = 'edba99ea8838948e7c122c3656303eaf' ;
 console.log('aiKey:', apiKey); // Check if the API key is being loaded correctly
 app.get('/api/search/:city', async (req, res) => {
     const cityName = req.params.city;
