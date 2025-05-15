@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import WeatherContext from "../context/WeatherContext";
 
-// Use the API_URL from environment variables if available
-const API_BASE_URL = process.env.API_URL || "";
+
+const API_BASE_URL = "https://weather-app-api-87vs.onrender.com";
 const weather_api_url = `${API_BASE_URL}/api/search`;
 
 const useWeather = () => {
