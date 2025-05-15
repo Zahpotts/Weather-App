@@ -17,7 +17,7 @@ app.get('/api/search/:city', async (req, res) => {
     } catch (err) {
       console.error("Weather API error:", err.message);
       if (!res.headersSent) {
-        res.status(500).send({ error: "Failed to fetch weather data" });
+        res.status(500).send({ error: "Failed to fetch weather dataa" });
       }
     }
   });
