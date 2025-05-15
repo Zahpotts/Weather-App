@@ -10,18 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const apiKey = process.env.WEATHER_API_KEY;
 
-// Safer check for API key - removes logging of sensitive info
-if (!apiKey) {
-  console.error('Warning: WEATHER_API_KEY environment variable is not set');
-}
-app.get('/api/debug-env', (req, res) => {
-  res.json({
-    envVarsSet: {
-      WEATHER_API_KEY: process.env.WEATHER_API_KEY ? "Set" : "Not set",
-      NODE_ENV: process.env.NODE_ENV || "Not set"
-    }
-  });
-});
+
 app.get('/api/search/:city', async (req, res) => {
     const cityName = req.params.city;
     
