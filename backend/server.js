@@ -2,22 +2,13 @@ import express from 'express';
 import axios from 'axios';
 const app = express();
 
-// Only use dotenv in development environment
-if (process.env.NODE_ENV !== 'production') {
-  const dotenv = await import('dotenv');
-  dotenv.config();
-}
+import dotenv from 'dotenv';
+dotenv.config();
 
 const apiKey = process.env.WEATHER_API_KEY;
-
-
+console.log('aiKey:', apiKey); // Check if the API key is being loaded correctly
 app.get('/api/search/:city', async (req, res) => {
     const cityName = req.params.city;
-    
-    if (!apiKey) {
-      return res.status(500).send({ error: "API key is not configured" });
-    }
-    
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
   
     try {
