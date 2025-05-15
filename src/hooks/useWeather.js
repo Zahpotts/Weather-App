@@ -1,16 +1,18 @@
 import { useContext } from "react";
 import WeatherContext from "../context/WeatherContext";
 
-const weather_api_url = "/api/search";
+// Use the API_URL from environment variables if available
+const API_BASE_URL = process.env.API_URL || "";
+const weather_api_url = `${API_BASE_URL}/api/search`;
+
 const useWeather = () => {
   const { state, dispatch } = useContext(WeatherContext);
 
   const fetchWeather = async (city) => {
-   if(!city) return;
+    if(!city) return;
     dispatch({ type: "FETCH_START" });
     try {
       const response = await fetch(`${weather_api_url}/${city}`, {
-
         headers:{
             'Cache-Control': 'no-cache',
         }
@@ -25,4 +27,5 @@ const useWeather = () => {
 
   return { state, fetchWeather };
 };
+
 export default useWeather;
