@@ -11,22 +11,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.bg-clear {
-  background: url('/images/Sunnyday.jpg');
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
 }
 
-.bg-rain{
- background: url('/images/rain.jpg');
+/* Weather backgrounds with full coverage */
+.bg-clear {
+  background: url('/images/Sunnyday.jpg') center/cover no-repeat fixed;
 }
-.bg-snow{
- background: url('/images/Snow.jpg');
+
+.bg-rain {
+  background: url('/images/rain.jpg') center/cover no-repeat fixed;
 }
-.bg-clouds{
- background: url('/images/clouds.jpg');
+
+.bg-snow {
+  background: url('/images/Snow.jpg') center/cover no-repeat fixed;
 }
-.bg-thunder{
- background: url('/images/thunder.jpg');
+
+.bg-clouds {
+  background: url('/images/clouds.jpg') center/cover no-repeat fixed;
 }
-.bg-default{
-  background-color: #f0f0f0;
+
+.bg-thunder {
+  background: url('/images/thunder.jpg') center/cover no-repeat fixed;
+}
+
+.bg-default {
+  background: linear-gradient(to bottom, #a1c4fd, #c2e9fb) fixed;
 }
